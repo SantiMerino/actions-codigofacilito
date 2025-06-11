@@ -23,5 +23,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      -name: Hola Mundo
-      run: echo "Segundo Job"
+      name: Hola Mundo
+      - run: echo "Segundo Job"

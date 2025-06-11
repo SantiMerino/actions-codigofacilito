@@ -14,14 +14,19 @@ jobs:
       NAME: CodigoFacilito
     # steps to run
     steps:
-      - run: echo "Hello Github Actions"
-      - run: echo "Variable de entorno $NAME"
+      - name: Echos al Mundo
+        id: step_1
+        run: echo "Hello Github Actions $NAME"
       # - run: npm i
       # - run: npm run
       # - uses: peaceiris/actions-gh-pages@v3
       #   with:
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
       #     publish_dir: ./build
+      - run: echo "variable = Store" >> $GITHUB_OUTPUT #
+
+      - name: Obtener Mensajes
+        run: echo "${{ steps. step_1}}"
 
   second-job:
     runs-on: ubuntu-latest
@@ -30,7 +35,8 @@ jobs:
       - run: echo "Hello Second Job Dependency"
 
   third-job:
-    if: ${{github.ref == 'refs/heads/main'}} # github contexts ${{ }}
+    # github contexts ${{ }}
+    if: ${{github.ref == 'refs/heads/main'}}
     runs-on: ubuntu-latest
     steps:
       - name: Working dir

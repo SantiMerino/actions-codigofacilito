@@ -10,9 +10,12 @@ jobs:
   deploy-practice:
     # runners
     runs-on: ubuntu-latest
+    env:
+      NAME: CodigoFacilito
     # steps to run
     steps:
       - run: echo "Hello Github Actions"
+      - run: echo "Variable de entorno $CodigoFacilito"
       # - run: npm i
       # - run: npm run
       # - uses: peaceiris/actions-gh-pages@v3

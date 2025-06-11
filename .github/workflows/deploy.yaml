@@ -33,4 +33,11 @@ jobs:
     if: ${{github.ref == 'refs/heads/main'}} # github contexts ${{ }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello Third Job"
+      - name: Working dir
+        run: ls -al
+
+      - name: Actions
+        uses: actions
+
+      - name: Working dir after Actions
+        run: ls -al

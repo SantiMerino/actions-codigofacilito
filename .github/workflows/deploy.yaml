@@ -15,7 +15,7 @@ jobs:
     # steps to run
     steps:
       - run: echo "Hello Github Actions"
-      - run: echo "Variable de entorno $CodigoFacilito"
+      - run: echo "Variable de entorno $NAME"
       # - run: npm i
       # - run: npm run
       # - uses: peaceiris/actions-gh-pages@v3

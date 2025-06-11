@@ -10,6 +10,8 @@ jobs:
   deploy-practice:
     # runners
     runs-on: ubuntu-latest
+    outputs:
+      exit: ${{ steps. step_1.outputs.variable}}
     env:
       NAME: CodigoFacilito
     # steps to run
@@ -31,8 +33,10 @@ jobs:
   second-job:
     runs-on: ubuntu-latest
     needs: deploy-practice # if deploy-practice is not run first won't run second job
+    env:
+      EXIT: ${{ needs.deploy-practice.outputs.exit }}
     steps:
-      - run: echo "Hello Second Job Dependency"
+      - run: echo "Hello Second Job Dependency $EXIT"
 
   third-job:
     # github contexts ${{ }}

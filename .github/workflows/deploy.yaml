@@ -19,9 +19,3 @@ jobs:
       #   with:
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
       #     publish_dir: ./build
-  second-job:
-    runs-on: ubuntu-latest
-
-    steps:
-      name: Hola Mundo
-      - run: echo "Segundo Job"

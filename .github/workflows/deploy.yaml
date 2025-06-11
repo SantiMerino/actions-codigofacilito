@@ -36,8 +36,8 @@ jobs:
       - name: Working dir
         run: ls -al
 
-      - name: Actions
-        uses: actions
+      - name: Action
+        uses: actions/checkout@v4
 
       - name: Working dir after Actions
         run: ls -al

@@ -22,6 +22,12 @@ jobs:
 
   second-job:
     runs-on: ubuntu-latest
-    needs: deploy-practice
+    needs: deploy-practice # if deploy-practice is not run first won't run second job
     steps:
       - run: echo "Hello Second Job Dependency"
+
+  third-job:
+    if: ${{github.ref == 'refs/heads/main'}} # github contexts ${{ }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Hello Third Job"

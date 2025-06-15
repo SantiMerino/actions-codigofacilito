@@ -18,6 +18,7 @@ jobs:
     steps:
       - name: Echos al Mundo
         id: step_1
+        # Echo of the environment variable
         run: echo "Hello Github Actions $NAME"
       # - run: npm i
       # - run: npm run
@@ -51,3 +52,15 @@ jobs:
 
       - name: Working dir after Actions
         run: ls -al
+  # Artifacts
+  fourth-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create file
+        run: |
+          echo "Archivo de prueba" >> prueba.log
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-artifact
+          path: prueba.log

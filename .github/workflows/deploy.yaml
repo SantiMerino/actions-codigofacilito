@@ -79,3 +79,12 @@ jobs:
         # ! path when downloading the artifact is not a must
       - name: Print file
         run: cat prueba.log
+  # Strategy matrix
+  sixth-job:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [1, 2, 3]
+    steps:
+      - name: Print version
+        run: 'echo "Version: ${{ matrix.version }}"' # backticks are used to execute the command

@@ -76,7 +76,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: test-artifact
-          # path to the artifact is a must
-          path: prueba.log
+        # ! path when downloading the artifact is not a must
       - name: Print file
         run: cat prueba.log

@@ -10,6 +10,7 @@ jobs:
   fisrt_job:
     # runners
     runs-on: ubuntu-latest
+    # services if there's more than one
     services:
       redis:
         image: redis
@@ -18,6 +19,7 @@ jobs:
     # steps to run
     steps:
       - name: Install redis cli
+      # the flag -y is to aprove automatically the command
         run: sudo apt-get update -y && sudo apt-get install redis-tools -y
       - name: Test redis
         run: redis-cli -h localhost -p 6379 ping

@@ -11,21 +11,28 @@ jobs:
     # runners
     runs-on: ubuntu-latest
     # services if there's more than one
-    services:
-      redis:
-        image: redis
-        ports:
-          - 6379:6379
+    # services:
+    #   redis:
+    #     image: redis
+    #     ports:
+    #       - 6379:6379
     # steps to run
     steps:
-      - name: Install redis cli
-      # the flag -y is to aprove automatically the command
-        run: sudo apt-get update -y && sudo apt-get install redis-tools -y
-      - name: Test redis
-        run: redis-cli -h localhost -p 6379 ping
+      # - name: Install redis cli
+      # # the flag -y is to aprove automatically the command
+      #   run: sudo apt-get update -y && sudo apt-get install redis-tools -y
+      # - name: Test redis
+      #   run: redis-cli -h localhost -p 6379 ping
       - name: Echos al Mundo
         run: echo "${{secrets.GITHUB_TOKEN}}"
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: setup
         uses: actions/setup-node@v4
         with:
           node-version: "18"
+
+      - name: Instalar dependencias
+        run: npm install 

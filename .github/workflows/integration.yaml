@@ -34,14 +34,23 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Install dependencies
+      - name: Install dependencies 
         run: npm install 
     
     # run the test after installing dependencies
       - name: Run Test
         run: npm run test
+
+      - name: Build page
+        run: npm run build
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public/
   # second job that needs the first one to be completed
   deploy:
+    if: ${{ always() }}
     runs-on: ubuntu-latest
     needs: build
 
